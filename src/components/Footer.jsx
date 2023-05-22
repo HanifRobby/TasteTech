@@ -5,7 +5,7 @@ import { GooglePlay, AppStore, logo2 } from '../assets'
 
 const Footer = () => {
     return (
-        <footer className='bg-dark-green w-full flex flex-row justify-around py-4 text-white absolute'>
+        <footer className='bg-primary1 w-full flex flex-row justify-around py-4 text-white absolute'>
             <div>
                 <p className='font-bold ml-2'>Juga tersedia di</p>
                 <div className='inline-flex items-center'>
@@ -16,7 +16,7 @@ const Footer = () => {
 
             <div className='center'>
                 <img src={logo2} alt="logo" className='w-28 h-28' />
-                <div className='font-semibold text-sm'>&copy; Kelompok IMK</div>
+                <div className='font-semibold text-sm'>&copy;TasteTech</div>
             </div>
 
             <div className='text-right'>

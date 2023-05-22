@@ -37,9 +37,9 @@ const Login = () => {
 
     return (
         <div
-            className='bg-beige w-full h-screen bg-cover bg-no-repeat flex items-center justify-center'
+            className='bg-primary1 w-full h-screen bg-cover bg-no-repeat flex items-center justify-center'
             style={{ backgroundImage: `url(${background})` }}>
-            <div className='bg-dark-green w-[30%] h-[70%] rounded-[49px] box-shadow text-beige relative'>
+            <div className='bg-primary2 w-[60%] h-[80%] rounded-[49px] box-shadow text-white relative'>
                 <h2 className='font-bold text-4xl text-center m-10 text-shadow'>Masuk</h2>
                 <form onSubmit={handleSubmit} className='flex flex-col w-[90%] mx-auto mt-14 gap-2'>
                     {error && <p className='text-red-900 font-bold text-lg'>Email atau password yang dimasukan salah</p>}

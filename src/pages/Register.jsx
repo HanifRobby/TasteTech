@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom'
 const Register = () => {
     return (
         <div
-            className='bg-beige w-full h-screen bg-cover bg-no-repeat flex items-center justify-center'
+            className='bg-body w-full h-screen bg-cover bg-no-repeat flex items-center justify-center'
             style={{ backgroundImage: `url(${background})` }}>
-            <div className='bg-dark-green w-[30%] h-[90%] rounded-[49px] box-shadow text-beige relative'>
-                <h2 className='font-bold text-4xl text-center m-10 text-shadow'>Pendaftaran akun</h2>
-                <form action="" className='flex flex-col w-[90%] mx-auto mt-14 gap-2'>
+            <div className='bg-primary2 w-[60%] h-[80%] rounded-[49px] box-shadow text-white relative'>
+                <h2 className='font-bold text-4xl text-center m-10 text-shadow'>Register</h2>
+                <form action="" className='flex flex-col w-[60%] mx-auto mt-14 gap-2'>
                     <label htmlFor="email" className='label'>Email</label>
                     <input
                         type="email"

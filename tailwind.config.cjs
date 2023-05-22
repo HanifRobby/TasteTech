@@ -9,12 +9,15 @@ module.exports = {
       colors: {
         transparent: 'transparent',
         current: 'currentColor',
+        'primary1' : '#EC9F05',
+        'primary2' : '#BF3100',
+        'body' : '#D76A03',
         'white': '#ffffff',
         'black': '#000000',
-        'light-green': '#74B92E',
-        'dark-green': '#499755',
-        'beige': '#F4D6B3',
-        'beige2': '#F9EAD9'
+        'light-green': '#74B92E', // 
+        'dark-green': '#499755', //
+        'beige': '#F4D6B3', //
+        'beige2': '#F9EAD9' //
       },
     },
     animation: {

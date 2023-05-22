@@ -15,7 +15,7 @@ const LandingPage = () => {
     return (
         <div className='w-full'>
             <section style={{ backgroundImage: `url(${background})` }} className="h-screen bg-cover flex flex-col justify-between">
-                <div className='bg-orange-500 opacity-60 h-[10%] z-20'></div>
+                <div className='bg-primary1 opacity-60 h-[10%] z-20'></div>
                 <div className='absolute h-screen bg-black w-full opacity-40'></div>
                 <div className='text-center text-white w-[65%] self-center z-20'>
                     <h1 className='font-bold text-7xl'>BERSAMA DUKUNG UMKM</h1>
@@ -35,10 +35,10 @@ const LandingPage = () => {
                         </NavLink>
                     </div>
                 </div>
-                <div className='bg-orange-500 opacity-60 h-[10%] z-20'></div>
+                <div className='bg-primary1 opacity-60 h-[10%] z-20'></div>
             </section>
 
-            <section className='h-screen bg-beige flex flex-col'>
+            <section className='h-screen bg-body flex flex-col'>
                 <div className='m-auto'>
                     <h2 className='text-4xl font-bold'>Menu Favorit Minggu ini</h2>
                     <div className='flex flex-row justify-between'>
