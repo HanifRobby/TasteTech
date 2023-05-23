@@ -14,8 +14,8 @@ const ProfileButton = () => {
     return (
         <>
             <div className="absolute bottom-10 right-20">
-                <button type='submit' onClick={() => setSaved(true)} className="bg-dark-green text-white py-2 w-24 rounded-lg border-[1px] border-gray-300 mr-1">Simpan</button>
-                <button type='reset' className="bg-beige2 text-black py-2 w-24 rounded-lg border-[1px] border-gray-300 ml-1">Batal</button>
+                <button type='submit' onClick={() => setSaved(true)} className="bg-white font-bold text-primary2 py-2 w-24 rounded-lg border-[1px] border-gray-300 mr-1">Simpan</button>
+                <button type='reset' className=" bg-white font-bold text-black py-2 w-24 rounded-lg border-[1px] border-gray-300 ml-1">Batal</button>
             </div>
                 <div className="flex justify-center">
                     <div

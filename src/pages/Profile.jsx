@@ -104,7 +104,7 @@ const Account = () => {
                 </div>
                 <div className="map">
                     <img src={ProfileMap} alt="" className="w-full" />
-                    <Link to={'#'} className="text-green-600 underline flex items-center py-2 text-lg hover:opacity-80 font-light">
+                    <Link to={'#'} className="text-white underline flex items-center py-2 text-lg hover:opacity-80 font-light">
                         Tunjukan titik pada peta
                         <IoLocationSharp />
                     </Link>
@@ -310,37 +310,46 @@ const Bonus = () => {
 const Profile = () => {
     const Page = [{ name: Account }, { name: Notification }, { name: Password }, { name: Bonus }]
     const [active, setActive] = useState(0);
+    const navigate = useNavigate();
 
+    function handleLogout(){
+        localStorage.removeItem("token")
+        sessionStorage.removeItem("token")
+        navigate('/')
+    }
     return (
         <div className="bg-body">
             <Navbar />
             <div className="pt-36 pb-14">
                 <div className="flex flex-row w-[80vw] h-screen mx-auto">
-                    <div className="h-full w-1/4 bg-primary2">
-                        <Link to="#">
-                            <div
-                                className="w-32 h-32 rounded-full bg-cover bg-center mx-auto my-5 group"
-                                style={{ backgroundImage: `url(${pp})` }}>
+                    <div className="h-full w-1/4 bg-primary2 flex flex-col justify-between ">
+                        <div>
+                            <Link to="#">
                                 <div
-                                    className="group-hover:flex hidden flex-col w-full h-full rounded-full justify-center
-                                    items-center text-white bg-black-glass">
-                                    <FaCamera className="text-2xl" />
-                                    ubah foto profile</div>
+                                    className="w-32 h-32 rounded-full bg-cover bg-center mx-auto my-5 group"
+                                    style={{ backgroundImage: `url(${pp})` }}>
+                                    <div
+                                        className="group-hover:flex hidden flex-col w-full h-full rounded-full justify-center
+                                        items-center text-white bg-black-glass">
+                                        <FaCamera className="text-2xl" />
+                                        ubah foto profile</div>
+                                </div>
+                            </Link>
+                            <nav>
+                                {NavItem.map((item, index) => (
+                                    <Link
+                                        to={`/profile/${item.url}`}
+                                        onClick={() => setActive(index)}
+                                        className={`${index === active ? 'bg-white text-primary2' : 'bg-transparent text-white'} px-4 py-5 flex items-center gap-4 text-xl font-light`}>
+                                        <item.icon />
+                                        {item.name}
+                                    </Link>
+                                ))}
+                            </nav>
+                        </div>
+                        <div className="w-full flex items-center justify-center my-10">
+                            <button onClick={() => handleLogout()} className="bg-white px-4 py-2 rounded-md text-primary2 font-bold text-lg text-center">Logout</button>
                             </div>
-                        </Link>
-
-                        <nav>
-                            {NavItem.map((item, index) => (
-                                <Link
-                                    to={`/profile/${item.url}`}
-                                    onClick={() => setActive(index)}
-                                    className={`${index === active ? 'bg-white text-primary2' : 'bg-transparent text-white'} px-4 py-5 flex items-center gap-4 text-xl font-light`}>
-                                    <item.icon />
-                                    {item.name}
-                                </Link>
-                            ))}
-                        </nav>
-
                     </div>
 
                     <div className="flex-1 overflow-hidden bg-primary2/80 h-full px-20 relative">
