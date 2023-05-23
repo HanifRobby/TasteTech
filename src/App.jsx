@@ -28,18 +28,13 @@ const App = () => {
         <Route path="/login" element={<Login user={user} />} />
         <Route path="/register" element={<Register />} />
         <Route path="/" element={<LandingPage />} />
-        
-        {/* Private Routes for logged in user*/}
-        <Route element={<PrivateRoutes />}>
-          <Route path="/dashboard" element={<Dashboard user={user}/>} />
-          <Route path="/rm-pak-aziz" element={<MenuResto />} />
-          <Route path="/search" element={<FindResto />} />
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="/delivery" element={<Delivery />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/profile/:menu" element={<Profile />} />
-        </Route>
-
+        <Route path="/dashboard" element={<Dashboard user={user} />} />
+        <Route path="/rm-pak-aziz" element={<MenuResto />} />
+        <Route path="/search" element={<FindResto />} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/delivery" element={<Delivery />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile/:menu" element={<Profile />} />
       </Routes>
       <Footer />
     </div>

@@ -79,12 +79,11 @@ input[type=search]::-ms-reveal {
 }
 
 .regis-button {
-  @apply text-yellow-700 font-bold px-4 py-2 rounded-xl text-xl hover:opacity-90;
-  background: linear-gradient(180deg, #EEC28F 0%, #E4A870 100%);
+  @apply text-primary2 font-bold px-4 py-2 rounded-xl text-xl hover:opacity-90 bg-white;
 }
 
 .orange-button {
-  background: #E65F13;
+  @apply bg-primary2;
   border-radius: 13px;
   padding: 0.65rem 7rem;
   color: white;
@@ -97,7 +96,7 @@ input[type=search]::-ms-reveal {
 }
 
 .info-container {
-  background: linear-gradient(90.2deg, #FEB360 30.24%, rgba(240, 187, 124, 0.08) 90.92%);
+  background: linear-gradient(90deg, #BF3100 67.7%, rgba(80, 243, 90, 0) 100.01%);
   border-radius: 18px;
 }
 

@@ -1,11 +1,12 @@
 import { Navbar, ProfileButton } from "../components"
-import { UserProfile, ProfileMap } from "../assets"
-import { FaCamera, FaUserAlt, FaKey, FaLock, FaEye, FaEyeSlash } from 'react-icons/fa'
+import { UserProfile, ProfileMap, pp, promoCard } from "../assets"
+import { FaCamera, FaUserAlt, FaKey, FaLock, FaEye, FaEyeSlash, FaCoins } from 'react-icons/fa'
 import { IoNotifications, IoLocationSharp } from 'react-icons/io5'
 import { Link, useNavigate } from "react-router-dom"
 import { useState } from "react"
 import { RiArrowDownSLine } from 'react-icons/ri'
 import { getAuth } from "firebase/auth"
+import { ImTrophy } from "react-icons/im"
 
 const NavItem = [
     {
@@ -22,7 +23,12 @@ const NavItem = [
         name: "Password",
         icon: FaKey,
         url: 'password'
-    }
+    },
+    {
+        name: "Bonus Poin",
+        icon: FaCoins,
+        url: 'bonus'
+    },
 ]
 
 function handleSubmit(e) {
@@ -32,12 +38,10 @@ function handleSubmit(e) {
 
 const Account = () => {
 
-    var user = getAuth().currentUser;
-    console.log(user)
     const [Fname, setFname] = useState(sessionStorage.getItem('fname') || '');
     const [Lname, setLname] = useState(sessionStorage.getItem('lname') || '');
     const [phoneNumber, setPhoneNumber] = useState('085882450727');
-    const [email, setEmail] = useState(user.email);
+    const [email, setEmail] = useState("");
     const [alamat, setAlamat] = useState(sessionStorage.getItem('alamat') || '')
 
     function handleSubmit(e) {
@@ -135,11 +139,11 @@ const Notification = () => {
                     <p className="font-normal">Anda akan menerima notifikasi ketika status pesanan anda berubah.</p>
                 </div>
                 <div className="relative">
-                    <button type="button" onClick={() => setBrowserOpen(!browserOpen)} className={`dropdown ${browserOpen ? 'rounded-t-md' : 'rounded-md'}`}>
+                    <button type="button" onClick={() => setBrowserOpen(!browserOpen)} className={`dropdown ${browserOpen ? 'rounded-t-md' : 'rounded-md'} !text-primary2`}>
                         {browser}
                         <RiArrowDownSLine className={`${browserOpen && 'rotate-180'}`} />
                     </button>
-                    <div name="notif-option" className={`${browserOpen ? 'block' : 'hidden'} border-2 border-[##499755] text-[#499755] cursor-pointer absolute bg-white w-full`}>
+                    <div name="notif-option" className={`${browserOpen ? 'block' : 'hidden'} border-2 text-primary2 cursor-pointer absolute bg-white w-full`}>
                         {choose.map((option) => (
                             <option
                                 key={option}
@@ -165,7 +169,7 @@ const Notification = () => {
                         {email}
                         <RiArrowDownSLine className={`${emailOpen && 'rotate-180'}`} />
                     </button>
-                    <div name="notif-option" className={`${emailOpen ? 'block' : 'hidden'} border-2 border-[##499755] text-[#499755] cursor-pointer absolute bg-white w-full`}>
+                    <div name="notif-option" className={`${emailOpen ? 'block' : 'hidden'} border-2 text-primary2 cursor-pointer absolute bg-white w-full`}>
                         {choose.map((option) => (
                             <option
                                 key={option}
@@ -190,7 +194,7 @@ const Notification = () => {
                         {promosi}
                         <RiArrowDownSLine className={`${promosiOpen && 'rotate-180'}`} />
                     </button>
-                    <div name="notif-option" className={`${promosiOpen ? 'block' : 'hidden'} border-2 border-[##499755] text-[#499755] cursor-pointer absolute bg-white w-full`}>
+                    <div name="notif-option" className={`${promosiOpen ? 'block' : 'hidden'} border-2 text-primary2 cursor-pointer absolute bg-white w-full`}>
                         {choose.map((option) => (
                             <option
                                 key={option}
@@ -216,10 +220,10 @@ const Password = () => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const navigate = useNavigate();
-    
+
     function handleSubmit(e) {
         e.preventDefault();
-        
+
         setPassword('');
         setConfirmPassword('');
     }
@@ -229,36 +233,36 @@ const Password = () => {
             <h3 className="text-5xl font-bold pt-14">Ganti Password</h3>
             <div className="flex flex-col mt-12 gap-2">
                 <label htmlFor="new-password" className="font-bold">Password Baru</label>
-                <div className={`flex items-center bg-white px-2 w-72 gap-4 border-2 h-12 ${password.length > 0 ? "text-3xl" : "text-xl"}`}>
+                <div className={`flex items-center bg-white px-2 w-72 gap-4 border-2 h-12 text-black ${password.length > 0 ? "text-3xl" : "text-xl"}`}>
                     <FaLock className="text-lg" />
                     <input
                         type={view ? "text" : "password"}
                         className={`bg-transparent ${view && "text-xl"} w-full`}
                         maxLength={16}
-                        minLength={8} 
+                        minLength={8}
                         value={password}
-                        onChange={(e)=> setPassword(e.target.value)}
-                        placeholder="Masukan Password"/>
+                        onChange={(e) => setPassword(e.target.value)}
+                        placeholder="Masukan Password" />
                     <button type="button" onClick={() => setView(!view)} className="text-xl">
-                        {view ?  <FaEyeSlash /> : <FaEye />}
+                        {view ? <FaEyeSlash /> : <FaEye />}
                     </button>
                 </div>
             </div>
 
             <div className="flex flex-col mt-6 gap-2">
                 <label htmlFor="confirm-new-password" className="font-bold">Konfirmasi Password Baru</label>
-                <div className={`flex items-center bg-white px-2 w-72 gap-4 border-2 h-12 ${confirmPassword.length > 0 ? "text-3xl" : "text-xl"}`}>
+                <div className={`flex items-center bg-white px-2 w-72 gap-4 border-2 h-12 text-black ${confirmPassword.length > 0 ? "text-3xl" : "text-xl"}`}>
                     <FaLock className="text-lg" />
                     <input
                         type={viewConfirm ? "text" : "password"}
                         className={`bg-transparent ${viewConfirm && "text-xl"} w-full`}
                         maxLength={16}
-                        minLength={8} 
+                        minLength={8}
                         value={confirmPassword}
-                        onChange={(e)=> setConfirmPassword(e.target.value)}
-                        placeholder="Masukan Password"/>
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                        placeholder="Masukan Password" />
                     <button type="button" onClick={() => setViewConfirm(!viewConfirm)} className="text-xl">
-                        {viewConfirm ?  <FaEyeSlash /> : <FaEye />}
+                        {viewConfirm ? <FaEyeSlash /> : <FaEye />}
                     </button>
                 </div>
             </div>
@@ -269,21 +273,54 @@ const Password = () => {
     )
 }
 
+const Bonus = () => {
+    return (
+        <div className="w-full mt-16">
+            <h3 className="text-white font-bold text-4xl">Bonus Poin</h3>
+            <div className="bg-white rounded-xl w-3/5 py-4 px-4 flex items-center gap-5 mt-5">
+                <div className="bg-primary2 h-24 w-24 rounded-full flex items-center justify-center">
+                    <ImTrophy className="w-16 h-16" />
+                </div>
+                <p className="text-black font-bold text-2xl"><span className="text-primary2 mr-4">50</span> Bonus Poin</p>
+            </div>
+            <p className="text-white text-lg mt-10">Tukar poin anda untuk mendapatkan voucher diskon yang menarik</p>
+
+            <div className="flex flex-wrap gap-12 mt-10">
+                {[1, 2, 3, 4].map( data => (
+                    <div key={data} className="bg-white flex items-center w-[45%] rounded-lg relative py-2">
+                        <div className="w-28 h-28 relative">
+                            <img src={promoCard} alt="" className="w-28 h-28 absolute left-[-20px]" />
+                        </div>
+                        <div className="flex flex-col items-center text-primary2 text-2xl">
+                            <p className="font-bold">Diskon</p>
+                            <p className="font-bold">35%</p>
+                            <p className="font-bold">Kode: O2E74H</p>
+                            <p>Minimal Pembelian</p>
+                            <p>40ribu</p>
+                        </div>
+                        <p className="font-bold text-black text-lg absolute right-2 top-2">100 Poin</p>
+                    </div>
+                ))}
+            </div>
+        </div>
+    )
+}
+
 
 const Profile = () => {
-    const Page = [{ name: Account }, { name: Notification }, { name: Password }]
+    const Page = [{ name: Account }, { name: Notification }, { name: Password }, { name: Bonus }]
     const [active, setActive] = useState(0);
 
     return (
-        <div className="bg-beige tes">
+        <div className="bg-body">
             <Navbar />
             <div className="pt-36 pb-14">
                 <div className="flex flex-row w-[80vw] h-screen mx-auto">
-                    <div className="h-full w-1/4 bg-beige2">
+                    <div className="h-full w-1/4 bg-primary2">
                         <Link to="#">
                             <div
                                 className="w-32 h-32 rounded-full bg-cover bg-center mx-auto my-5 group"
-                                style={{ backgroundImage: `url(${UserProfile})` }}>
+                                style={{ backgroundImage: `url(${pp})` }}>
                                 <div
                                     className="group-hover:flex hidden flex-col w-full h-full rounded-full justify-center
                                     items-center text-white bg-black-glass">
@@ -297,7 +334,7 @@ const Profile = () => {
                                 <Link
                                     to={`/profile/${item.url}`}
                                     onClick={() => setActive(index)}
-                                    className={`${index === active ? 'bg-dark-green text-white' : 'bg-transparent text-black'} px-4 py-5 flex items-center gap-4 text-xl font-light`}>
+                                    className={`${index === active ? 'bg-white text-primary2' : 'bg-transparent text-white'} px-4 py-5 flex items-center gap-4 text-xl font-light`}>
                                     <item.icon />
                                     {item.name}
                                 </Link>
@@ -306,9 +343,9 @@ const Profile = () => {
 
                     </div>
 
-                    <div className="flex-1 overflow-hidden bg-white-80 h-full px-20 relative">
+                    <div className="flex-1 overflow-hidden bg-primary2/80 h-full px-20 relative">
                         {Page.map((page, index) => (
-                            <div key={"page-" + index} className={`${active === index ? 'block' : 'hidden'} h-full`}><page.name /></div>
+                            <div key={"page-" + index} className={`${active === index ? 'block' : 'hidden'} h-full text-white`}><page.name /></div>
                         ))}
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import { FiSearch } from 'react-icons/fi'
-import { UserProfile, shopCart, logo1 } from '../assets';
+import { UserProfile, shopCart, tasteTech, pp } from '../assets';
 import { useNavigate, Link } from 'react-router-dom';
 import { getAuth } from 'firebase/auth';
 
@@ -53,16 +53,16 @@ const Navbar = ({ totalItem }) => {
     const navigate = useNavigate();
     const [inputValue, setInputValue] = useState('');
     const [cartOpen, setCartOpen] = useState(false);
-    
+
     function handleSubmit(e) {
         e.preventDefault();
         navigate(`/search?q=${inputValue}`)
     }
 
     return (
-        <nav className='bg-dark-green flex flex-row py-3 items-center justify-between fixed w-full top-0 z-40'>
+        <nav className='bg-primary1 flex flex-row py-0 items-center justify-between fixed w-full top-0 z-40'>
             <NavLink to="/dashboard" className='inline-item text-xl gap-3 mx-3'>
-                <img src={logo1} alt="logo" className='h-11 w-60' />
+                <img src={tasteTech} alt="logo" className='h-28' />
             </NavLink>
 
             <form onSubmit={(e) => handleSubmit(e)} className='bg-white opacity-70 inline-item h-10 rounded-lg w-5/12 ml-10'>
@@ -77,29 +77,37 @@ const Navbar = ({ totalItem }) => {
                     className='text-xl placeholder:text-lg flex-1' />
             </form>
 
-            <div className='relative text-beige inline-flex items-center'>
-                <button onClick={() => setCartOpen(!cartOpen)} className="inline-item hover:opacity-80 relative">
-                    Pesanan Anda
-                    <img src={shopCart} alt="shop-cart" className='relative' />
-                    {totalItem > 0 &&
-                        <div className={`bg-yellow-600 w-5 h-5 rounded-full absolute right-0 top-0 text-white font-bold flex items-center justify-center`}>{totalItem}</div>}
-                </button>
-                <NavLink
-                    to="/profile"
-                    className="w-16 h-16 rounded-full my-2 bg-cover bg-center ml-5 hover:opacity-80 mx-3"
-                    style={{ backgroundImage: `url(${localStorage.getItem('photoUrl')})` }}>
-                </NavLink>
+            {localStorage.token ?
+                <div className='relative inline-flex items-center text-white'>
+                    <button onClick={() => setCartOpen(!cartOpen)} className="inline-item hover:opacity-80 relative">
+                        Pesanan Anda
+                        <img src={shopCart} alt="shop-cart" className='relative' />
+                        {totalItem > 0 &&
+                            <div className={`bg-yellow-600 w-5 h-5 rounded-full absolute right-0 top-0 text-white font-bold flex items-center justify-center`}>{totalItem}</div>}
+                    </button>
+                    <NavLink
+                        to="/profile"
+                        className="w-16 h-16 rounded-full bg-cover bg-center ml-5 hover:opacity-80 mx-3"
+                        style={{ backgroundImage: `url(${pp})` }}>
 
-                {cartOpen &&
-                    <div className='absolute w-[24.5rem] bg-glass right-0 top-[92px] px-4 flex flex-col '>
-                        {totalItem > 0 ?
-                            <OrderList /> 
-                            : <div className='flex items-center justify-center h-[70vh]'>
-                                <p className='text-black text-2xl opacity-80'>Tidak ada barang di keranjang. . .</p>
-                            </div>}
-                    </div>
-                }
-            </div>
+                    </NavLink>
+
+                    {cartOpen &&
+                        <div className='absolute w-[24.5rem] bg-glass right-0 top-[92px] px-4 flex flex-col '>
+                            {totalItem > 0 ?
+                                <OrderList />
+                                : <div className='flex items-center justify-center h-[70vh]'>
+                                    <p className='text-black text-2xl opacity-80'>Tidak ada barang di keranjang. . .</p>
+                                </div>}
+                        </div>
+                    }
+                </div>
+                :
+                <div className='mx-12 flex flex-row gap-8 text-white'>
+                    <button onClick={() => navigate('/login')} className='bg-primary2 px-6 py-2 rounded-2xl text-2xl font-bold'>Login</button>
+                    <button onClick={() => navigate('/register')} className='bg-primary2 px-6 py-2 rounded-2xl text-2xl font-bold'>Signup</button>
+                </div>
+            }
         </nav>
     )
 }

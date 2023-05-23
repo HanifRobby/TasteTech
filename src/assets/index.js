@@ -1,6 +1,7 @@
 import GooglePlay from './GooglePlay.png';
 import AppStore from './AppStore.png';
 import Jajanan from './Jajanan.png';
+import Map from './Map.png';
 import LandPageBg from './LandPageBg.jpg';
 import Mie from './Mie.png';
 import Minuman from './Minuman.png';
@@ -17,8 +18,17 @@ import ProfileShadow from './ProfileShadow.png';
 import EsTeh from './EsTeh.png';
 import Header from './Header.png';
 import Driver from './Driver.png';
-import Map from './Map.png';
 import ProfileMap from './ProfileMap.png';
+import landingPageImg from './landingPageImg.png';
+import pp from './pp.png';
+import tasteTech from './tasteTech.png';
+import catering from './catering.png';
+import discount from './discount.png';
+import foodbar from './foodbar.png';
+import halal from './halal.png';
+import mapMark from './mapMark.png';
+import rating from './rating.png';
+import promoCard from './promoCard.png';
 
 import location from './location.svg';
 import promo from './promo.svg';
@@ -36,6 +46,7 @@ export {
     GooglePlay,
     AppStore,
     Jajanan,
+    Map,
     LandPageBg,
     Mie,
     Minuman,
@@ -51,9 +62,18 @@ export {
     ProfileShadow,
     EsTeh,
     Header,
-    Map,
     Driver,
     ProfileMap,
+    landingPageImg,
+    pp,
+    tasteTech,
+    catering,
+    discount,
+    foodbar,
+    halal,
+    mapMark,
+    rating,
+    promoCard,
 
     promo,
     shopCart,

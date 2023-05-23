@@ -1,7 +1,7 @@
 
 import { FaTwitter, FaFacebookF, FaInstagram } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
-import { GooglePlay, AppStore, logo2 } from '../assets'
+import { GooglePlay, AppStore, tasteTech } from '../assets'
 
 const Footer = () => {
     return (
@@ -15,8 +15,7 @@ const Footer = () => {
             </div>
 
             <div className='center'>
-                <img src={logo2} alt="logo" className='w-28 h-28' />
-                <div className='font-semibold text-sm'>&copy;TasteTech</div>
+            <img src={tasteTech} alt="logo" className='h-36' />
             </div>
 
             <div className='text-right'>

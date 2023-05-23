@@ -5,11 +5,11 @@ const OrderCard = ({ name, price, image, setTotalItem, totalItem }) => {
   const [total, setTotal] = useState(0);
 
   return (
-    <div className='h-96 w-64 bg-dark-green text-center text-beige rounded-2xl'>
-      <div className="w-64 h-64 rounded-full my-2 bg-cover bg-center" style={{ backgroundImage: `url(${image})` }}></div>
+    <div className=' w-64 py-6 bg-primary2 text-center text-beige rounded-2xl flex flex-col items-center'>
+      <div className="w-52 h-52 rounded-full my-2 bg-cover bg-center" style={{ backgroundImage: `url(${image})` }}></div>
       <h4 className='font-bold text-xl'>{name}</h4>
       <p className='text-lg'>{price}</p>
-      <div className='flex flex-row justify-evenly text-dark-green text-2xl mt-2'>
+      <div className='flex flex-row justify-evenly text-primary2 text-2xl mt-2 w-full'>
         <button onClick={() => {
           total > 0 && setTotal(total - 1)
           total > 0 && setTotalItem(totalItem - 1)
